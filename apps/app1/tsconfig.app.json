@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": []
+  },
+  "files": ["bootstrap/client/main.ts", "bootstrap/client/polyfills.ts"],
+  "include": ["**/*.d.ts"],
+  "exclude": ["**/*.test.ts", "**/*.spec.ts", "bootstrap/api/**/*", "api/**/*"]
+}
