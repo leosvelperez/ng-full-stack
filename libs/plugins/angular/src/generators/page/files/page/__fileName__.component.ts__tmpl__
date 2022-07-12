@@ -1,0 +1,29 @@
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { map } from 'rxjs';
+
+@Component({
+  template: `<p>{{ message$ | async }}</p>`,
+  styles: [],
+})
+export class <%= className %>Component {
+  message$ = this.http
+    .get<{ message: string }>('/api/<%= fileName %>')
+    .pipe(map(({ message }) => message));
+
+  constructor(private readonly http: HttpClient) {}
+}
+
+@NgModule({
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule.forChild([
+      { path: '', component: <%= className %>Component, pathMatch: 'full' }
+    ]),
+  ],
+  declarations: [<%= className %>Component],
+})
+export class <%= className %>ComponentModule {}

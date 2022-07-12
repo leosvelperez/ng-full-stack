@@ -1,0 +1,9 @@
+import { Controller, Get } from '@nestjs/common';
+
+@Controller('<%= fileName %>')
+export class <%= className %>Controller {
+  @Get()
+  getData(): { message: string; } {
+    return { message: 'Welcome to <%= fileName %>!' };
+  }
+}

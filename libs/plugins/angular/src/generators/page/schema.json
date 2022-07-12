@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "NxAngularPageGenerator",
+  "title": "Angular Page Schema",
+  "cli": "nx",
+  "type": "object",
+  "description": "Creates a new page in an Angular Full-Stack application.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the page.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the component?"
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path at which to create the page, relative to the `pages` directory.",
+      "visible": false
+    },
+    "displayBlock": {
+      "description": "Specifies if the style will contain `:host { display: block; }`.",
+      "type": "boolean",
+      "default": false,
+      "alias": "b"
+    },
+    "standalone": {
+      "description": "Whether the generated component is standalone.",
+      "type": "boolean",
+      "default": false
+    },
+    "viewEncapsulation": {
+      "description": "The view encapsulation strategy to use in the new component.",
+      "enum": ["Emulated", "None", "ShadowDom"],
+      "type": "string",
+      "alias": "v"
+    },
+    "changeDetection": {
+      "description": "The change detection strategy to use in the new component.",
+      "enum": ["Default", "OnPush"],
+      "type": "string",
+      "default": "Default",
+      "alias": "c"
+    },
+    "style": {
+      "description": "The file extension or preprocessor to use for style files, or `none` to skip generating the style file.",
+      "type": "string",
+      "default": "css",
+      "enum": ["css", "scss", "sass", "less", "none"]
+    },
+    "skipTests": {
+      "type": "boolean",
+      "description": "Do not create `spec.ts` test files for the new component.",
+      "default": false
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

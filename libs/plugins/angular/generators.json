@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "plugins-angular",
+  "version": "0.0.1",
+  "generators": {
+    "page": {
+      "factory": "./src/generators/page/page",
+      "schema": "./src/generators/page/schema.json",
+      "description": "Creates a new page in an Angular Full-Stack application."
+    }
+  }
+}
